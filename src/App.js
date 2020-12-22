@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App () {
+
+
+    useEffect(() => {
+        new window.google.maps.Map(document.getElementById("map"), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8,
+        });
+    }, [])
+
+    const mapStyleS = {height: '500px'}
+    return (
+        <div className="App">
+            <div style={mapStyleS} id="map"/>
+        </div>
+    );
 }
 
 export default App;
